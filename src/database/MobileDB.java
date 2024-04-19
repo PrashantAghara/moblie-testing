@@ -3,6 +3,7 @@ package database;
 import model.Mobile;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MobileDB {
@@ -22,5 +23,9 @@ public class MobileDB {
 
     public Mobile getMobileByName(String name) {
         return mobileDB.get(name);
+    }
+
+    public List<Mobile> getAllMobiles() {
+        return mobileDB.values().stream().toList();
     }
 }

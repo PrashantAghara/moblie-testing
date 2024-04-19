@@ -3,13 +3,17 @@ package database;
 import model.Booking;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BookingDB {
     private static final Map<String, Booking> bookingDB = new HashMap<>();
 
-    public Booking getBookingById(String id) {
-        return bookingDB.get(id);
+    public List<Booking> getBookingByPhoneId(String phoneId) {
+        return bookingDB.values()
+                .stream()
+                .filter(booking -> booking.getMobileId().equals(phoneId))
+                .toList();
     }
 
     public void createBooking(Booking booking) {

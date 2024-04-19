@@ -1,15 +1,13 @@
 package model;
 
-import java.util.Date;
-
 public class Booking {
     private String id;
     private String mobileId;
     private String userId;
-    private Date bookingDate;
-    private Date returnDate;
+    private String bookingDate;
+    private String returnDate;
 
-    public Booking(String id, String mobileId, String userId, Date bookingDate, Date returnDate) {
+    public Booking(String id, String mobileId, String userId, String bookingDate, String returnDate) {
         this.id = id;
         this.mobileId = mobileId;
         this.userId = userId;
@@ -29,11 +27,11 @@ public class Booking {
         return userId;
     }
 
-    public Date getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
-    public Date getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
 }
