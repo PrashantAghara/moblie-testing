@@ -11,12 +11,15 @@ public class PrinterUtil {
         System.out.println("Name : " + mobileDTO.getName());
         System.out.println("Available : " + mobileDTO.getAvailable());
         System.out.println("Details : " + mobileDTO.getDetail());
+        System.out.println("Quantity : " + mobileDTO.getQuantity());
         if (mobileDTO.getBookings() != null) {
-            System.out.println("-- Bookings --");
+            System.out.println("--- Bookings ---");
             mobileDTO.getBookings().forEach(bookingDetailDTO -> {
+                System.out.println("-----");
                 System.out.println("Booked by : " + bookingDetailDTO.getUserName());
                 System.out.println("Booking date : " + bookingDetailDTO.getBookingDate());
                 System.out.println("Return date : " + bookingDetailDTO.getReturnDate());
+                System.out.println("-----");
             });
         }
     }
