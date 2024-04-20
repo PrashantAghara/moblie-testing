@@ -19,9 +19,11 @@ public class Driver {
 
     public Driver() {
         this.userService = new UserService();
-        this.mobileService = new MobileService();
-        this.bookingService = new BookingService();
+        this.mobileService = new MobileService(userService);
+        this.bookingService = new BookingService(userService);
         this.returnService = new ReturnService(bookingService, mobileService);
+        mobileService.setBookingService(bookingService);
+        bookingService.setMobileService(mobileService);
         this.printerUtil = new PrinterUtil();
     }
 
@@ -45,7 +47,7 @@ public class Driver {
                 case 2:
                     System.out.print("Enter phone name : ");
                     String phoneName = scanner.next();
-                    MobileDTO mobileDTO = mobileService.getMobileName(bookingService, phoneName);
+                    MobileDTO mobileDTO = mobileService.getMobileName(phoneName);
                     printerUtil.printMobileDetails(mobileDTO);
                     break;
                 case 3:
@@ -74,7 +76,7 @@ public class Driver {
                     String mobile = scanner.next();
                     System.out.print("Enter number of days for phone to be returned : ");
                     int returnDays = scanner.nextInt();
-                    bookingService.createBooking(mobileService, userName, mobile, returnDays);
+                    bookingService.createBooking(userName, mobile, returnDays);
                     break;
                 case 4:
                     System.out.print("Enter Booking id : ");

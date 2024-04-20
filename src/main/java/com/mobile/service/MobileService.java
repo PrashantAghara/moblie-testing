@@ -13,13 +13,24 @@ import java.util.List;
 public class MobileService {
     private final MobileDAO mobileDAO;
     private final UserService userService;
+    private BookingService bookingService;
 
-    public MobileService() {
+    public MobileService(UserService userService) {
         this.mobileDAO = new MobileDAO();
-        this.userService = new UserService();
+        this.userService = userService;
     }
 
-    public MobileDTO getMobileName(BookingService bookingService, String name) {
+    // For Unit Testing
+    public MobileService(MobileDAO mobileDAO, UserService userService) {
+        this.mobileDAO = mobileDAO;
+        this.userService = userService;
+    }
+
+    public void setBookingService(BookingService bookingService) {
+        this.bookingService = bookingService;
+    }
+
+    public MobileDTO getMobileName(String name) {
         try {
             Mobile mobile = mobileDAO.getMobileByName(name);
             MobileDTO mobileDTO = new MobileDTO(mobile.getId(), mobile.getName(), mobile.getDetail(),

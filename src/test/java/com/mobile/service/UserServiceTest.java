@@ -22,7 +22,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void testGetUserById_UserExists() {
+    public void testGetUserByIdUserExists() {
         User expectedUser = new User("abc", "John", "1234567890", "England");
         when(userDAO.getUserById("abc")).thenReturn(expectedUser);
         User actualUser = userService.getUserById("abc");
@@ -30,14 +30,14 @@ class UserServiceTest {
     }
 
     @Test
-    public void testGetUserById_UserNotExists() {
+    public void testGetUserByIdUserNotExists() {
         String userId = "abc";
         when(userDAO.getUserById(userId)).thenReturn(null);
         assertThrows(UserNotFoundException.class, () -> userService.getUserById(userId));
     }
 
     @Test
-    public void testCreateUser_Success() {
+    public void testCreateUserSuccess() {
         String id = "john";
         String name = "John";
         String phone = "1234567890";
@@ -48,7 +48,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void testCreateUser_Error() {
+    public void testCreateUserError() {
         String id = "john";
         String name = "John";
         String phone = "1234567890";

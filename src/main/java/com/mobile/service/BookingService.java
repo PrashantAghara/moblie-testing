@@ -15,17 +15,28 @@ import java.util.List;
 public class BookingService {
     private final BookingDAO bookingDAO;
     private final UserService userService;
+    private MobileService mobileService;
 
-    public BookingService() {
+    public BookingService(UserService userService) {
         this.bookingDAO = new BookingDAO();
-        this.userService = new UserService();
+        this.userService = userService;
+    }
+
+    //For Unit Testing
+    public BookingService(BookingDAO bookingDAO, UserService userService) {
+        this.bookingDAO = bookingDAO;
+        this.userService = userService;
+    }
+
+    public void setMobileService(MobileService mobileService) {
+        this.mobileService = mobileService;
     }
 
     public List<Booking> getBookingByPhoneId(String phoneId) {
         return bookingDAO.getBookingByPhoneId(phoneId);
     }
 
-    public void createBooking(MobileService mobileService, String userName, String phoneName, int returnDays) {
+    public void createBooking(String userName, String phoneName, int returnDays) {
         try {
             User user = userService.getUserById(userName);
             Mobile mobile = mobileService.getMobile(phoneName);
