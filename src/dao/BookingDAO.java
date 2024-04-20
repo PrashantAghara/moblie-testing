@@ -1,6 +1,7 @@
 package dao;
 
 import database.BookingDB;
+import exception.BookingNotFoundException;
 import model.Booking;
 
 import java.util.List;
@@ -18,5 +19,17 @@ public class BookingDAO {
 
     public void createBooking(Booking booking) {
         bookingDB.createBooking(booking);
+    }
+
+    public Booking getBookingById(String id) {
+        Booking booking = bookingDB.getBookingById(id);
+        if (booking == null) {
+            throw new BookingNotFoundException("Booking with id : " + id + " not found");
+        }
+        return booking;
+    }
+
+    public void removeBooking(String id) {
+        bookingDB.deleteBooking(id);
     }
 }

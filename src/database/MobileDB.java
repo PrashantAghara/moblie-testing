@@ -13,7 +13,7 @@ public class MobileDB {
         mobileDB.put("Samsung Galaxy S9", new Mobile("M1", "Samsung Galaxy S9", "Galaxy S9 of Samsung", true, 1));
         mobileDB.put("Samsung Galaxy S8", new Mobile("M2", "Samsung Galaxy S8", " Samsung Galaxy S8", true, 2));
         mobileDB.put("Motorola Nexus 6", new Mobile("M3", "Motorola Nexus 6", "Motorola Nexus 6", true, 1));
-        mobileDB.put("Oneplus 9", new Mobile("M4", "Oneplus 9", "Galaxy S9 of Samsung", true, 1));
+        mobileDB.put("Oneplus 9", new Mobile("M4", "Oneplus 9", "Oneplus 9", true, 1));
         mobileDB.put("Apple iPhone 13", new Mobile("M5", "Apple iPhone 13", "Apple iPhone 13", true, 1));
         mobileDB.put("Apple iPhone 12", new Mobile("M6", "Apple iPhone 12", "Apple iPhone 12", true, 1));
         mobileDB.put("Apple iPhone 11", new Mobile("M7", "Apple iPhone 11", "Apple iPhone 11", true, 1));
@@ -27,5 +27,9 @@ public class MobileDB {
 
     public List<Mobile> getAllMobiles() {
         return mobileDB.values().stream().toList();
+    }
+
+    public void setMobileInDB(Mobile mobile) {
+        mobileDB.put(mobile.getName(), mobile);
     }
 }

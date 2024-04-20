@@ -24,4 +24,8 @@ public class MobileDAO {
         }
         return mobile;
     }
+
+    public void setMobileInDB(Mobile mobile) {
+        mobileDB.setMobileInDB(mobile);
+    }
 }
