@@ -29,7 +29,7 @@ public class MobileService {
                 List<BookingDetailDTO> bookings = bookingDetailList.stream()
                         .map(booking -> {
                             User user = userService.getUserById(booking.getUserId());
-                            return new BookingDetailDTO(user.getName(), booking.getBookingDate(), booking.getReturnDate());
+                            return new BookingDetailDTO(user.getName(), booking.getBookingDate(), booking.getReturnDate(), user.getPhone());
                         }).toList();
                 mobileDTO.setBookings(bookings);
             }

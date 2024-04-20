@@ -20,6 +20,7 @@ public class PrinterUtil {
             mobileDTO.getBookings().forEach(bookingDetailDTO -> {
                 System.out.println("-----");
                 System.out.println("Booked by : " + bookingDetailDTO.getUserName());
+                System.out.println("Booked user contact : " + bookingDetailDTO.getPhoneNumber());
                 System.out.println("Booking date : " + bookingDetailDTO.getBookingDate());
                 System.out.println("Return date : " + bookingDetailDTO.getReturnDate());
                 System.out.println("-----");
@@ -36,7 +37,7 @@ public class PrinterUtil {
             System.out.println("-*-*-*-");
             System.out.println("Mobile Name : " + mobile.getName());
             System.out.println("Mobile Details : " + mobile.getDetail());
-            System.out.println("-*-*-*-");
+            System.out.println("Quantity : " + mobile.getQuantity());
         });
     }
 }

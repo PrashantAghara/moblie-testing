@@ -4,11 +4,17 @@ public class BookingDetailDTO {
     private String userName;
     private String bookingDate;
     private String returnDate;
+    private String phoneNumber;
 
-    public BookingDetailDTO(String userName, String bookingDate, String returnDate) {
+    public BookingDetailDTO(String userName, String bookingDate, String returnDate, String phoneNumber) {
         this.userName = userName;
         this.bookingDate = bookingDate;
         this.returnDate = returnDate;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public String getUserName() {
