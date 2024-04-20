@@ -47,4 +47,12 @@ public class MobileService {
     public void setMobileInDB(Mobile mobile) {
         mobileDAO.setMobileInDB(mobile);
     }
+
+    public List<Mobile> getAvailableMobiles() {
+        List<Mobile> mobiles = mobileDAO.getAllAvailableMobiles();
+        if (mobiles.isEmpty()) {
+            System.out.println("No mobiles available");
+        }
+        return mobiles;
+    }
 }

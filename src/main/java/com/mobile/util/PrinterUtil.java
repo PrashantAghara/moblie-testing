@@ -1,6 +1,9 @@
 package com.mobile.util;
 
 import com.mobile.dto.MobileDTO;
+import com.mobile.model.Mobile;
+
+import java.util.List;
 
 public class PrinterUtil {
     public void printMobileDetails(MobileDTO mobileDTO) {
@@ -22,5 +25,18 @@ public class PrinterUtil {
                 System.out.println("-----");
             });
         }
+    }
+
+    public void printAvailableMobiles(List<Mobile> mobiles) {
+        System.out.println("=== Available Mobiles ===");
+        if (mobiles.isEmpty()) {
+            return;
+        }
+        mobiles.forEach(mobile -> {
+            System.out.println("-*-*-*-");
+            System.out.println("Mobile Name : " + mobile.getName());
+            System.out.println("Mobile Details : " + mobile.getDetail());
+            System.out.println("-*-*-*-");
+        });
     }
 }

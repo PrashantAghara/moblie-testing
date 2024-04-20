@@ -25,7 +25,7 @@ public class BookingService {
         return bookingDAO.getBookingByPhoneId(phoneId);
     }
 
-    public void createBooking(MobileService mobileService, String userName, String phoneName, String returnDate) {
+    public void createBooking(MobileService mobileService, String userName, String phoneName, int returnDays) {
         try {
             User user = userService.getUserById(userName);
             Mobile mobile = mobileService.getMobile(phoneName);
@@ -34,6 +34,7 @@ public class BookingService {
                 return;
             }
             String bookingDate = DateTimeFormatter.ofPattern("dd-MM-yyyy").format(LocalDate.now());
+            String returnDate = DateTimeFormatter.ofPattern("dd-MM-yyyy").format(LocalDate.now().plusDays(returnDays));
             String id = userName + "_" + phoneName + "_" + bookingDate;
             Booking booking = new Booking(id, mobile.getId(), user.getId(), bookingDate, returnDate);
             bookingDAO.createBooking(booking);
