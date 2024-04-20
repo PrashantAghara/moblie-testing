@@ -12,6 +12,11 @@ public class UserService {
         this.userDAO = new UserDAO();
     }
 
+    // For unit testing
+    public UserService(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
     public void createUser(String id, String name, String phone, String address) {
         try {
             userDAO.createUser(new User(id, name, phone, address));
